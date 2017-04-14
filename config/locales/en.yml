@@ -21,3 +21,23 @@
 
 en:
   hello: "Hello world"
+  sample : "Sample App"
+  this : "This is the home page for the"
+  ruby : "Ruby on rails Tutorial"
+  sample : "sample application"
+  get : "Get help on the Ruby on rails Tutorial at the"
+  rails : "Rails Tutorial help section"
+  to : "To get help on this sample app, see the"
+  book : "book"
+  about : "About"
+  is : "is a"
+  and : "and to teach web development with"
+  in : "Ruby on rails"
+  app : ".This is the sample application for the tutorial."
+  help : "Help"
+  home : "Home"
+  title : "Ruby on Rails Tutorial Samaple App"
+  the : "The"
+  static_pages:
+    about:
+      content:"The %{ref_rails} "
