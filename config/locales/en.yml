@@ -38,6 +38,3 @@ en:
   home : "Home"
   title : "Ruby on Rails Tutorial Samaple App"
   the : "The"
-  static_pages:
-    about:
-      content:"The %{ref_rails} "
