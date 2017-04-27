@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create, :show]
   before_action :admin_user, only: :destroy
   before_action :find_user, except: [:index, :new, :create]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.activated.paginate page: params[:page]
   end
 
   def new
@@ -15,15 +15,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
-      flash[:success] = t "welcome"
-      redirect_to user_path @user
+      @user.send_activation_email
+      flash[:info] = t "please_check"
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def show
+    redirect_to root_path and return unless @user.activated
   end
 
   def edit
@@ -74,5 +75,4 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
