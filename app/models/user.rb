@@ -71,7 +71,7 @@ class User < ApplicationRecord
   end
   
   def feed
-    Micropost.where("user_id = ?", id)
+    microposts.ordered
   end
 
   private
