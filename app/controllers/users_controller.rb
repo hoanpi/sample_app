@@ -24,8 +24,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to root_path and return unless @user.activated
+    redirect_to root_url and return unless @user
     @microposts = @user.microposts.paginate page: params[:page]
+    @microposts = @user.microposts.ordered.paginate page: params[:page]
+    @follow = current_user.active_relationships.build
+    @unfollow = current_user.active_relationships.find_by followed_id: @user.id
   end
 
   def edit
